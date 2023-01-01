@@ -2,7 +2,7 @@ using System;
 
 namespace NetCrypsi.Lib.Utils
 {
-    public sealed class Utils
+    internal sealed class Utils
     {
         private Utils() {
 
