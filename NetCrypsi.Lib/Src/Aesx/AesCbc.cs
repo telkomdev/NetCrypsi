@@ -76,7 +76,7 @@ namespace NetCrypsi.Lib.Aesx
         }
 
         // AES CBC Encrypt IO
-        private static void EncryptWithAESCBCIO(AesKey aesKey, Stream plaindata, Stream outEncryptedData, byte[] key) 
+        private static void EncryptWithAESCBC(AesKey aesKey, Stream plaindata, Stream outEncryptedData, byte[] key) 
         {
 
             Aes aes = Aes.Create();
@@ -146,7 +146,7 @@ namespace NetCrypsi.Lib.Aesx
         }
 
         // AES CBC Decrypt IO
-        private static void DecryptWithAESCBCIO(AesKey aesKey, Stream encryptedData, Stream outPlainData, byte[] key) 
+        private static void DecryptWithAESCBC(AesKey aesKey, Stream encryptedData, Stream outPlainData, byte[] key) 
         {
             Aes aes = Aes.Create();
             // init
@@ -225,18 +225,46 @@ namespace NetCrypsi.Lib.Aesx
         }
 
         // io
-        public static void EncryptWithAES128CBCIO(Stream plaindata, Stream outEncryptedData, byte[] key)
+        public static void EncryptWithAES128CBC(Stream plaindata, Stream outEncryptedData, byte[] key)
         {
             Validator.Validate(AesKey.Key128, plaindata, outEncryptedData, key);
 
-            EncryptWithAESCBCIO(AesKey.Key128, plaindata, outEncryptedData, key);
+            EncryptWithAESCBC(AesKey.Key128, plaindata, outEncryptedData, key);
         }
 
-        public static void DecryptWithAES128CBCIO(Stream encryptedData, Stream outPlainData, byte[] key)
+        public static void EncryptWithAES192CBC(Stream plaindata, Stream outEncryptedData, byte[] key)
+        {
+            Validator.Validate(AesKey.Key192, plaindata, outEncryptedData, key);
+
+            EncryptWithAESCBC(AesKey.Key192, plaindata, outEncryptedData, key);
+        }
+
+        public static void EncryptWithAES256CBC(Stream plaindata, Stream outEncryptedData, byte[] key)
+        {
+            Validator.Validate(AesKey.Key256, plaindata, outEncryptedData, key);
+
+            EncryptWithAESCBC(AesKey.Key256, plaindata, outEncryptedData, key);
+        }
+
+        public static void DecryptWithAES128CBC(Stream encryptedData, Stream outPlainData, byte[] key)
         {
            Validator.Validate(AesKey.Key128, encryptedData, outPlainData, key);
 
-            DecryptWithAESCBCIO(AesKey.Key128, encryptedData, outPlainData, key);
+            DecryptWithAESCBC(AesKey.Key128, encryptedData, outPlainData, key);
+        }
+
+        public static void DecryptWithAES192CBC(Stream encryptedData, Stream outPlainData, byte[] key)
+        {
+           Validator.Validate(AesKey.Key192, encryptedData, outPlainData, key);
+
+            DecryptWithAESCBC(AesKey.Key192, encryptedData, outPlainData, key);
+        }
+
+        public static void DecryptWithAES256CBC(Stream encryptedData, Stream outPlainData, byte[] key)
+        {
+           Validator.Validate(AesKey.Key256, encryptedData, outPlainData, key);
+
+            DecryptWithAESCBC(AesKey.Key256, encryptedData, outPlainData, key);
         }
     }
 }
