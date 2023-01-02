@@ -2,7 +2,7 @@ using System;
 
 namespace NetCrypsi.Lib.Aesx
 {
-    public enum AesKey
+    internal enum AesKey
     {
         // Key128, key size for AES 128 bits encryption
         Key128 = 16,
