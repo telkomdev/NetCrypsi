@@ -17,8 +17,6 @@ namespace NetCrypsi.Lib.Rsax
         // KeySize4Kb 4096
         public const int KeySize4Kb = 1 << 12; // 4096
 
-        private int KeySize;
-
         private byte[]? privateKeyPKCS8Bytes;
 
         private byte[]? privateKeyPKCS1Bytes;

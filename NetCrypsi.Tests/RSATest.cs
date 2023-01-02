@@ -36,4 +36,10 @@ public class RSATest
         Assert.NotNull(publicKeyBytes);
         Assert.NotNull(privateKeyBytes);
     }
+
+    [Fact]
+    public void TestRSAXCreateShouldThrowsExceptionWhenKeyIsInvalid()
+    {
+        Assert.Throws<ArgumentException>(() => Lib.Rsax.Rsax.Create(512));
+    }
 }
