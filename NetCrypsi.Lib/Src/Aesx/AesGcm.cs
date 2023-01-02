@@ -24,9 +24,6 @@ namespace NetCrypsi.Lib.Aesx
                 int nonceSize = System.Security.Cryptography.AesGcm.NonceByteSizes.MaxSize;
                 int tagSize = System.Security.Cryptography.AesGcm.TagByteSizes.MaxSize;
 
-                Console.WriteLine(string.Format("nonce size: {0}", nonceSize));
-                Console.WriteLine(string.Format("tag size: {0}", tagSize));
-
                 byte[] cipherDataBuffer = new byte[plaindata.Length];
                 byte[] tagBuffer = new byte[tagSize];
                 // generate unique nonce

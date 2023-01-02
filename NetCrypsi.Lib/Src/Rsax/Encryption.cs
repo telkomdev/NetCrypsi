@@ -21,8 +21,6 @@ namespace NetCrypsi.Lib.Rsax
             {
                 rsa.ImportRSAPublicKey(publicKey, out _);
                 RSAEncryptionPadding padding = RSAEncryptionPadding.CreateOaep(algorithmName);
-                Console.WriteLine(padding.OaepHashAlgorithm);
-                Console.WriteLine(padding.Mode);
                 encryptedDataBytes = rsa.Encrypt(plainData, padding);
             }
 
