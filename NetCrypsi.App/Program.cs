@@ -88,12 +88,12 @@ namespace NetCrypsi.App
 // {
 //     public class Application
 //     {
-            // https://blog.ndpar.com/2017/04/17/p1-p8/
-            // convert rsa public key from PKCS1 format to x509
-            // openssl rsa -RSAPublicKey_in -in public.key -pubout
+// https://blog.ndpar.com/2017/04/17/p1-p8/
+// convert rsa public key from PKCS1 format to x509
+// openssl rsa -RSAPublicKey_in -in public.key -pubout
 
-            // convert rsa private key from PKCS1 format to PKCS8
-            // openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in private_pkcs1.key -out private_key_pkcs82.key
+// convert rsa private key from PKCS1 format to PKCS8
+// openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in private_pkcs1.key -out private_key_pkcs82.key
 //         public static void Main(string[] args)
 //         {
 //             Lib.Rsax.Rsax rsax = Lib.Rsax.Rsax.Create(Lib.Rsax.Rsax.KeySize2Kb);
