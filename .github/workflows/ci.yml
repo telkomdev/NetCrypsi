@@ -1,0 +1,30 @@
+name: NetCrypsi CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dotnet: [ '5.0.x', '6.0.x', '7.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use DotNet ${{ matrix.dotnet }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      
+      - name: Install Ubuntu dependecies
+        run: bash ./scripts/install_ubuntu_deps
+
+      - name: Run test
+        run: make test
