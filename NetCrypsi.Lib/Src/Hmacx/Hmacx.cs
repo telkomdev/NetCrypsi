@@ -51,7 +51,7 @@ namespace NetCrypsi.Lib.Hmacx
         public static byte[] MD5(byte[] key, byte[] data)
         {
             Validate(key);
-            
+
             byte[] hashValue;
             using (System.Security.Cryptography.HMACMD5 mD5 = new System.Security.Cryptography.HMACMD5(key))
             {
@@ -104,7 +104,7 @@ namespace NetCrypsi.Lib.Hmacx
             return hashValue;
         }
 
-        public static string SHA1Hex(byte[] key,Stream data)
+        public static string SHA1Hex(byte[] key, Stream data)
         {
             Validate(key);
 
@@ -112,7 +112,7 @@ namespace NetCrypsi.Lib.Hmacx
             return hashValue;
         }
 
-        public static string SHA1Hex(byte[] key,byte[] data)
+        public static string SHA1Hex(byte[] key, byte[] data)
         {
             Validate(key);
 
@@ -244,7 +244,7 @@ namespace NetCrypsi.Lib.Hmacx
         public static string SHA512Hex(byte[] key, byte[] data)
         {
             Validate(key);
-            
+
             string hashValue = Convert.ToHexString(SHA512(key, data));
             return hashValue;
         }

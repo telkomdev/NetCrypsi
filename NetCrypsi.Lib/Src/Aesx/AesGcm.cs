@@ -8,10 +8,10 @@ namespace NetCrypsi.Lib.Aesx
     {
         private AesGcm()
         {
-            
+
         }
 
-        private static byte[] EncryptWithAESGCM(AesKey aesKey, byte[] plaindata, byte[] key) 
+        private static byte[] EncryptWithAESGCM(AesKey aesKey, byte[] plaindata, byte[] key)
         {
             byte[] encrypted;
             using (System.Security.Cryptography.AesGcm aesGcm = new System.Security.Cryptography.AesGcm(key))
@@ -45,7 +45,7 @@ namespace NetCrypsi.Lib.Aesx
                 string cipherDataBufferHexStr = Convert.ToHexString(cipherDataBuffer);
 
                 // append nonce, cipher buffer and tag buffer
-                encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(nonceHexStr), 
+                encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(nonceHexStr),
                             Encoding.UTF8.GetBytes(cipherDataBufferHexStr));
                 encrypted = Lib.Utils.Utils.BufferConcat(encrypted, Encoding.UTF8.GetBytes(tagBufferHexStr));
             }
@@ -53,7 +53,7 @@ namespace NetCrypsi.Lib.Aesx
             return encrypted;
         }
 
-        private static byte[] DecryptWithAESGCM(AesKey aesKey, byte[] encryptedData, byte[] key) 
+        private static byte[] DecryptWithAESGCM(AesKey aesKey, byte[] encryptedData, byte[] key)
         {
             byte[] plainData;
             using (System.Security.Cryptography.AesGcm aesGcm = new System.Security.Cryptography.AesGcm(key))
@@ -70,8 +70,8 @@ namespace NetCrypsi.Lib.Aesx
 
                 // slice every part
                 byte[] nonce = encryptedDataUnhex[0..nonceSize];
-                byte[] cipherdata = encryptedDataUnhex[nonceSize..(encryptedDataUnhex.Length-tagSize)];
-                byte[] tagBuffer = encryptedDataUnhex[(encryptedDataUnhex.Length-tagSize)..];
+                byte[] cipherdata = encryptedDataUnhex[nonceSize..(encryptedDataUnhex.Length - tagSize)];
+                byte[] tagBuffer = encryptedDataUnhex[(encryptedDataUnhex.Length - tagSize)..];
 
                 byte[] plainDataBufferOut = new byte[cipherdata.Length];
 

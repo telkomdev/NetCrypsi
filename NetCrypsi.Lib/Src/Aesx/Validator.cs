@@ -4,7 +4,7 @@ namespace NetCrypsi.Lib.Aesx
 {
     internal sealed class Validator
     {
-        private Validator() 
+        private Validator()
         {
 
         }
@@ -15,12 +15,12 @@ namespace NetCrypsi.Lib.Aesx
             {
                 throw new ArgumentNullException("plain data");
             }
-            
+
             if (key == null || key.Length <= 0)
             {
                 throw new ArgumentNullException("Key");
             }
-            
+
             switch (aesKey)
             {
                 case AesKey.Key128:
@@ -29,14 +29,14 @@ namespace NetCrypsi.Lib.Aesx
                         throw new ArgumentException("aes 128 must have 16 bytes key size");
                     }
                     break;
-                
+
                 case AesKey.Key192:
                     if (key.Length != (int)AesKey.Key192)
                     {
                         throw new ArgumentException("aes 192 must have 24 bytes key size");
                     }
                     break;
-                
+
                 case AesKey.Key256:
                     if (key.Length != (int)AesKey.Key256)
                     {
@@ -57,12 +57,12 @@ namespace NetCrypsi.Lib.Aesx
             {
                 throw new ArgumentNullException("dst data");
             }
-            
+
             if (key == null || key.Length <= 0)
             {
                 throw new ArgumentNullException("Key");
             }
-            
+
             switch (aesKey)
             {
                 case AesKey.Key128:
@@ -71,14 +71,14 @@ namespace NetCrypsi.Lib.Aesx
                         throw new ArgumentException("aes 128 must have 16 bytes key size");
                     }
                     break;
-                
+
                 case AesKey.Key192:
                     if (key.Length != (int)AesKey.Key192)
                     {
                         throw new ArgumentException("aes 192 must have 24 bytes key size");
                     }
                     break;
-                
+
                 case AesKey.Key256:
                     if (key.Length != (int)AesKey.Key256)
                     {

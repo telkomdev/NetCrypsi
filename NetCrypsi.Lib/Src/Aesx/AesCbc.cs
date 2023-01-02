@@ -12,43 +12,44 @@ namespace NetCrypsi.Lib.Aesx
 
         private AesCbc()
         {
-            
+
         }
 
         private static void InitAesCBC(ref Aes aes, AesKey aesKey)
         {
-             // set mode
+            // set mode
             aes.Mode = CipherMode.CBC;
             aes.Padding = PaddingMode.PKCS7;
 
             switch (aesKey)
             {
                 case AesKey.Key128:
-                    aes.KeySize = (int) AesKey.Key128 * 8;
+                    aes.KeySize = (int)AesKey.Key128 * 8;
                     aes.BlockSize = BlockSize;
                     break;
-                
+
                 case AesKey.Key192:
-                    aes.KeySize = (int) AesKey.Key192 * 8;
+                    aes.KeySize = (int)AesKey.Key192 * 8;
                     aes.BlockSize = BlockSize;
                     break;
-                
+
                 case AesKey.Key256:
-                    aes.KeySize = (int) AesKey.Key256 * 8;
+                    aes.KeySize = (int)AesKey.Key256 * 8;
                     aes.BlockSize = BlockSize;
                     break;
             }
         }
 
         // AES CBC Encrypt
-        private static byte[] EncryptWithAESCBC(AesKey aesKey, byte[] plaindata, byte[] key) 
+        private static byte[] EncryptWithAESCBC(AesKey aesKey, byte[] plaindata, byte[] key)
         {
-            
+
             byte[] encrypted;
             Aes aes = Aes.Create();
             // init
             InitAesCBC(ref aes, aesKey);
-            using (aes) {
+            using (aes)
+            {
                 // set key and initialization vector
                 aes.Key = key;
                 aes.IV = aes.IV;
@@ -61,12 +62,12 @@ namespace NetCrypsi.Lib.Aesx
                 {
                     using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
                     {
-                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream)) 
+                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
                         {
                             streamWriter.BaseStream.Write(plaindata);
                         }
 
-                        encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr), 
+                        encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr),
                             Encoding.UTF8.GetBytes(Convert.ToHexString(memoryStream.ToArray())));
                     }
                 }
@@ -76,13 +77,14 @@ namespace NetCrypsi.Lib.Aesx
         }
 
         // AES CBC Encrypt IO
-        private static void EncryptWithAESCBC(AesKey aesKey, Stream plaindata, Stream outEncryptedData, byte[] key) 
+        private static void EncryptWithAESCBC(AesKey aesKey, Stream plaindata, Stream outEncryptedData, byte[] key)
         {
 
             Aes aes = Aes.Create();
             // init
             InitAesCBC(ref aes, aesKey);
-            using (aes) {
+            using (aes)
+            {
                 // set key and initialization vector
                 aes.Key = key;
                 aes.IV = aes.IV;
@@ -101,29 +103,30 @@ namespace NetCrypsi.Lib.Aesx
                         plaindata.CopyTo(cryptoStream);
                     }
 
-                    byte[] encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr), 
+                    byte[] encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr),
                             Encoding.UTF8.GetBytes(Convert.ToHexString(memoryStream.ToArray())));
-                        outEncryptedData.Write(encrypted);
+                    outEncryptedData.Write(encrypted);
                 }
             }
         }
 
         // AES CBC Decrypt
-        private static byte[] DecryptWithAESCBC(AesKey aesKey, byte[] encryptedData, byte[] key) 
+        private static byte[] DecryptWithAESCBC(AesKey aesKey, byte[] encryptedData, byte[] key)
         {
-            
+
             byte[] plaindata;
             Aes aes = Aes.Create();
             // init
             InitAesCBC(ref aes, aesKey);
-            using (aes) {
+            using (aes)
+            {
                 // set key and initialization vector
                 aes.Key = key;
 
                 // convert data to hex bytes
                 byte[] encryptedDataUnhex = Convert.FromHexString(Encoding.UTF8.GetString(encryptedData));
-                byte[] iv = encryptedDataUnhex[0..(BlockSize/8)];
-                byte[] cipherdata = encryptedDataUnhex[(BlockSize/8)..];
+                byte[] iv = encryptedDataUnhex[0..(BlockSize / 8)];
+                byte[] cipherdata = encryptedDataUnhex[(BlockSize / 8)..];
 
                 aes.IV = iv;
 
@@ -137,7 +140,7 @@ namespace NetCrypsi.Lib.Aesx
                         {
                             cryptoStream.CopyTo(memoryStreamOut);
                             plaindata = memoryStreamOut.ToArray();
-                        }               
+                        }
                     }
                 }
             }
@@ -146,12 +149,13 @@ namespace NetCrypsi.Lib.Aesx
         }
 
         // AES CBC Decrypt IO
-        private static void DecryptWithAESCBC(AesKey aesKey, Stream encryptedData, Stream outPlainData, byte[] key) 
+        private static void DecryptWithAESCBC(AesKey aesKey, Stream encryptedData, Stream outPlainData, byte[] key)
         {
             Aes aes = Aes.Create();
             // init
             InitAesCBC(ref aes, aesKey);
-            using (aes) {
+            using (aes)
+            {
                 // set key and initialization vector
                 aes.Key = key;
 
@@ -164,8 +168,8 @@ namespace NetCrypsi.Lib.Aesx
 
                     // convert data to hex bytes
                     byte[] encryptedDataUnhex = Convert.FromHexString(Encoding.UTF8.GetString(memoryStreamSrc.ToArray()));
-                    byte[] iv = encryptedDataUnhex[0..(BlockSize/8)];
-                    byte[] cipherdata = encryptedDataUnhex[(BlockSize/8)..];
+                    byte[] iv = encryptedDataUnhex[0..(BlockSize / 8)];
+                    byte[] cipherdata = encryptedDataUnhex[(BlockSize / 8)..];
 
                     aes.IV = iv;
 
@@ -248,21 +252,21 @@ namespace NetCrypsi.Lib.Aesx
 
         public static void DecryptWithAES128CBC(Stream encryptedData, Stream outPlainData, byte[] key)
         {
-           Validator.Validate(AesKey.Key128, encryptedData, outPlainData, key);
+            Validator.Validate(AesKey.Key128, encryptedData, outPlainData, key);
 
             DecryptWithAESCBC(AesKey.Key128, encryptedData, outPlainData, key);
         }
 
         public static void DecryptWithAES192CBC(Stream encryptedData, Stream outPlainData, byte[] key)
         {
-           Validator.Validate(AesKey.Key192, encryptedData, outPlainData, key);
+            Validator.Validate(AesKey.Key192, encryptedData, outPlainData, key);
 
             DecryptWithAESCBC(AesKey.Key192, encryptedData, outPlainData, key);
         }
 
         public static void DecryptWithAES256CBC(Stream encryptedData, Stream outPlainData, byte[] key)
         {
-           Validator.Validate(AesKey.Key256, encryptedData, outPlainData, key);
+            Validator.Validate(AesKey.Key256, encryptedData, outPlainData, key);
 
             DecryptWithAESCBC(AesKey.Key256, encryptedData, outPlainData, key);
         }
