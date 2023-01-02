@@ -161,7 +161,7 @@ namespace NetCrypsi.Lib.Rsax
             return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA512);
         }
 
-         // Decrypt Stream
+        // Decrypt Stream
         public static void DecryptWithOaepMD5(byte[] privateKey, Stream encryptedData, Stream plainData)
         {
             DecryptWithOaep(privateKey, encryptedData, plainData, HashAlgorithmName.MD5);
