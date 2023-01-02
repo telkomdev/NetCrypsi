@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCrypsi.App", "NetCrypsi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCrypsi.Lib", "NetCrypsi.Lib\NetCrypsi.Lib.csproj", "{36556C6F-5196-4CCB-868E-E6F4DA03CBC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCrypsi.Tests", "NetCrypsi.Tests\NetCrypsi.Tests.csproj", "{88D3270C-F9B2-452A-B11E-48DE461679D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{36556C6F-5196-4CCB-868E-E6F4DA03CBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36556C6F-5196-4CCB-868E-E6F4DA03CBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36556C6F-5196-4CCB-868E-E6F4DA03CBC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D3270C-F9B2-452A-B11E-48DE461679D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D3270C-F9B2-452A-B11E-48DE461679D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D3270C-F9B2-452A-B11E-48DE461679D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D3270C-F9B2-452A-B11E-48DE461679D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
