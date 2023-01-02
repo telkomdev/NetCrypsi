@@ -1,4 +1,4 @@
-.PHONY : build build-osx build-linux clean format
+.PHONY : build build-osx build-linux clean format test
 
 clean:
 	rm -rf app
@@ -14,3 +14,6 @@ build:
 
 format:
 	dotnet format ./NetCrypsi.sln
+
+test:
+	dotnet test NetCrypsi.Tests/NetCrypsi.Tests.csproj
