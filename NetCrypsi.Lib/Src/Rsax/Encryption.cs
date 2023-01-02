@@ -27,18 +27,63 @@ namespace NetCrypsi.Lib.Rsax
             return encryptedDataBytes;
         }
 
+        // EncryptWithOaep, base encryption function with OAEP mode that support Stream
+        private static void EncryptWithOaep(byte[] publicKey, Stream plainData, Stream encryptedData, HashAlgorithmName algorithmName)
+        {
+            using (RSA rsa = RSA.Create())
+            {
+                rsa.ImportRSAPublicKey(publicKey, out _);
+                RSAEncryptionPadding padding = RSAEncryptionPadding.CreateOaep(algorithmName);
+
+                using (MemoryStream plainDataMemStream = new MemoryStream())
+                {
+                    // set stream position to 0
+                    plainData.Position = 0;
+
+                    plainData.CopyTo(plainDataMemStream);
+
+                    // encrypt data
+                    byte[] encryptedDataBytes = rsa.Encrypt(plainDataMemStream.ToArray(), padding);
+                    encryptedData.Write(encryptedDataBytes, 0, encryptedDataBytes.Length);
+                }
+            }
+        }
+
         // DecryptWithOaep, base decryption function with OAEP mode
         private static byte[] DecryptWithOaep(byte[] privateKey, byte[] encryptedData, HashAlgorithmName algorithmName)
         {
-            byte[] encryptedDataBytes;
+            byte[] decryptedDataBytes;
             using (RSA rsa = RSA.Create())
             {
                 rsa.ImportPkcs8PrivateKey(privateKey, out _);
                 RSAEncryptionPadding padding = RSAEncryptionPadding.CreateOaep(algorithmName);
-                encryptedDataBytes = rsa.Decrypt(encryptedData, padding);
+                decryptedDataBytes = rsa.Decrypt(encryptedData, padding);
             }
 
-            return encryptedDataBytes;
+            return decryptedDataBytes;
+        }
+
+        // DecryptWithOaep, base decryption function with OAEP mode that support Stream
+        private static void DecryptWithOaep(byte[] privateKey, Stream encryptedData, Stream plainData, HashAlgorithmName algorithmName)
+        {
+            using (RSA rsa = RSA.Create())
+            {
+                rsa.ImportPkcs8PrivateKey(privateKey, out _);
+                RSAEncryptionPadding padding = RSAEncryptionPadding.CreateOaep(algorithmName);
+                // encryptedDataBytes = rsa.Decrypt(encryptedData, padding);
+
+                using (MemoryStream encryptedDataMemStream = new MemoryStream())
+                {
+                    // set stream position to 0
+                    encryptedData.Position = 0;
+
+                    encryptedData.CopyTo(encryptedDataMemStream);
+
+                    // encrypt data
+                    byte[] decryptedDataBytes = rsa.Decrypt(encryptedDataMemStream.ToArray(), padding);
+                    plainData.Write(decryptedDataBytes, 0, decryptedDataBytes.Length);
+                }
+            }
         }
 
         private static void Validate(byte[] key, byte[] data, HashAlgorithmName algorithmName)
