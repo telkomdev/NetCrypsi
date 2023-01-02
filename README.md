@@ -2,7 +2,7 @@
 
 Custom crypto utility that wraps the DotNet `cryptography` API to make life easier
 
-[![NetCrypsi CI](https://github.com/telkomdev/NetCrypsi/actions/workflows/ci.yml/badge.svg)](https://github.com/telkomdev/NetCrypsi/actions/workflows/ci.yml)
+[![NetCrypsi CI](https://github.com/telkomdev/NetCrypsi/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/telkomdev/NetCrypsi/actions/workflows/ci.yml)
 
 ### NetCrypsi is compatible with each other with the following libraries
 - NodeJs https://github.com/telkomdev/crypsi
