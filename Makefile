@@ -1,4 +1,4 @@
-.PHONY : build build-osx build-linux clean
+.PHONY : build build-osx build-linux clean format
 
 clean:
 	rm -rf app
@@ -11,3 +11,6 @@ build-linux:
 
 build:
 	dotnet publish NetCrypsi.App/NetCrypsi.App.csproj -c Release -o app --no-restore
+
+format:
+	dotnet format ./NetCrypsi.sln
