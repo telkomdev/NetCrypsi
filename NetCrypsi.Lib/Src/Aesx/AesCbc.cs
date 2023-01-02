@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NetCrypsi.Lib.Aesx
 {
-    public sealed class AesCbc
+    internal sealed class AesCbc
     {
         // BlockSize in bits, or 16 in bytes
         private const int BlockSize = 128;
