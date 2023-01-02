@@ -70,7 +70,6 @@ namespace NetCrypsi.Lib.Rsax
             {
                 rsa.ImportPkcs8PrivateKey(privateKey, out _);
                 RSAEncryptionPadding padding = RSAEncryptionPadding.CreateOaep(algorithmName);
-                // encryptedDataBytes = rsa.Decrypt(encryptedData, padding);
 
                 using (MemoryStream encryptedDataMemStream = new MemoryStream())
                 {
@@ -130,6 +129,12 @@ namespace NetCrypsi.Lib.Rsax
             return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA512);
         }
 
+        // Encrypt Stream
+        public static void EncryptWithOaepMD5(byte[] publicKey, Stream plainData, Stream encryptedData)
+        {
+            EncryptWithOaep(publicKey, plainData, encryptedData, HashAlgorithmName.MD5);
+        }
+
         // Decrypt
         public static byte[] DecryptWithOaepMD5(byte[] privateKey, byte[] encryptedData)
         {
@@ -154,6 +159,12 @@ namespace NetCrypsi.Lib.Rsax
         public static byte[] DecryptWithOaepSHA512(byte[] privateKey, byte[] encryptedData)
         {
             return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA512);
+        }
+
+         // Decrypt Stream
+        public static void DecryptWithOaepMD5(byte[] privateKey, Stream encryptedData, Stream plainData)
+        {
+            DecryptWithOaep(privateKey, encryptedData, plainData, HashAlgorithmName.MD5);
         }
     }
 }
