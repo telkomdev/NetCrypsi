@@ -96,11 +96,6 @@ namespace NetCrypsi.Lib.Rsax
             {
                 throw new ArgumentException("data cannot be null");
             }
-
-            if (algorithmName == null)
-            {
-                throw new ArgumentException("algorithmName cannot be null");
-            }
         }
 
         // Encrypt
