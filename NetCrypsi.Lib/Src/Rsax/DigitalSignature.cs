@@ -92,25 +92,35 @@ namespace NetCrypsi.Lib.Rsax
         public static byte[] SignWithPssSHA512(byte[] privateKey, Stream data) => SignWithPss(privateKey, data, HashAlgorithmName.SHA512);
 
         // Verifying
-        public static bool VerifySignatureWithPssMD5(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.MD5);
+        public static bool VerifySignatureWithPssMD5(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.MD5);
 
-        public static bool VerifySignatureWithPssSHA1(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA1);
+        public static bool VerifySignatureWithPssSHA1(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA1);
 
-        public static bool VerifySignatureWithPssSHA256(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA256);
+        public static bool VerifySignatureWithPssSHA256(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA256);
 
-        public static bool VerifySignatureWithPssSHA384(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA384);
+        public static bool VerifySignatureWithPssSHA384(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA384);
 
-        public static bool VerifySignatureWithPssSHA512(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA512);
+        public static bool VerifySignatureWithPssSHA512(byte[] publicKey, byte[] signature, byte[] data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA512);
 
         // Verifying Stream
-        public static bool VerifySignatureWithPssMD5(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.MD5);
+        public static bool VerifySignatureWithPssMD5(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.MD5);
 
-        public static bool VerifySignatureWithPssSHA1(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA1);
+        public static bool VerifySignatureWithPssSHA1(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA1);
 
-        public static bool VerifySignatureWithPssSHA256(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA256);
+        public static bool VerifySignatureWithPssSHA256(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA256);
 
-        public static bool VerifySignatureWithPssSHA384(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA384);
+        public static bool VerifySignatureWithPssSHA384(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA384);
 
-        public static bool VerifySignatureWithPssSHA512(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey, signature, data, HashAlgorithmName.SHA512);
+        public static bool VerifySignatureWithPssSHA512(byte[] publicKey, byte[] signature, Stream data) => VerifySignatureWithPss(publicKey,
+                                                                                                        signature, data, HashAlgorithmName.SHA512);
     }
 }
