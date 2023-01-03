@@ -104,30 +104,15 @@ namespace NetCrypsi.Lib.Rsax
         }
 
         // Encrypt
-        public static byte[] EncryptWithOaepMD5(byte[] publicKey, byte[] plainData)
-        {
-            return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.MD5);
-        }
+        public static byte[] EncryptWithOaepMD5(byte[] publicKey, byte[] plainData) => EncryptWithOaep(publicKey, plainData, HashAlgorithmName.MD5);
 
-        public static byte[] EncryptWithOaepSHA1(byte[] publicKey, byte[] plainData)
-        {
-            return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA1);
-        }
+        public static byte[] EncryptWithOaepSHA1(byte[] publicKey, byte[] plainData) => EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA1);
 
-        public static byte[] EncryptWithOaepSHA256(byte[] publicKey, byte[] plainData)
-        {
-            return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA256);
-        }
+        public static byte[] EncryptWithOaepSHA256(byte[] publicKey, byte[] plainData) => EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA256);
 
-        public static byte[] EncryptWithOaepSHA384(byte[] publicKey, byte[] plainData)
-        {
-            return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA384);
-        }
+        public static byte[] EncryptWithOaepSHA384(byte[] publicKey, byte[] plainData) => EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA384);
 
-        public static byte[] EncryptWithOaepSHA512(byte[] publicKey, byte[] plainData)
-        {
-            return EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA512);
-        }
+        public static byte[] EncryptWithOaepSHA512(byte[] publicKey, byte[] plainData) => EncryptWithOaep(publicKey, plainData, HashAlgorithmName.SHA512);
 
         // Encrypt Stream
         public static void EncryptWithOaepMD5(byte[] publicKey, Stream plainData, Stream encryptedData)
@@ -136,30 +121,15 @@ namespace NetCrypsi.Lib.Rsax
         }
 
         // Decrypt
-        public static byte[] DecryptWithOaepMD5(byte[] privateKey, byte[] encryptedData)
-        {
-            return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.MD5);
-        }
+        public static byte[] DecryptWithOaepMD5(byte[] privateKey, byte[] encryptedData) => DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.MD5);
 
-        public static byte[] DecryptWithOaepSHA1(byte[] privateKey, byte[] encryptedData)
-        {
-            return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA1);
-        }
+        public static byte[] DecryptWithOaepSHA1(byte[] privateKey, byte[] encryptedData) => DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA1);
 
-        public static byte[] DecryptWithOaepSHA256(byte[] privateKey, byte[] encryptedData)
-        {
-            return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA256);
-        }
+        public static byte[] DecryptWithOaepSHA256(byte[] privateKey, byte[] encryptedData) => DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA256);
 
-        public static byte[] DecryptWithOaepSHA384(byte[] privateKey, byte[] encryptedData)
-        {
-            return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA384);
-        }
+        public static byte[] DecryptWithOaepSHA384(byte[] privateKey, byte[] encryptedData) => DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA384);
 
-        public static byte[] DecryptWithOaepSHA512(byte[] privateKey, byte[] encryptedData)
-        {
-            return DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA512);
-        }
+        public static byte[] DecryptWithOaepSHA512(byte[] privateKey, byte[] encryptedData) => DecryptWithOaep(privateKey, encryptedData, HashAlgorithmName.SHA512);
 
         // Decrypt Stream
         public static void DecryptWithOaepMD5(byte[] privateKey, Stream encryptedData, Stream plainData)

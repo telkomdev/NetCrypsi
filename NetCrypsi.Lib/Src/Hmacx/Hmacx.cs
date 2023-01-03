@@ -22,17 +22,9 @@ namespace NetCrypsi.Lib.Hmacx
             }
         }
 
-        private static byte[] Digest(System.Security.Cryptography.HMAC hmac, Stream data)
-        {
-            byte[] hashValue = hmac.ComputeHash(data);
-            return hashValue;
-        }
+        private static byte[] Digest(System.Security.Cryptography.HMAC hmac, Stream data) => hmac.ComputeHash(data);
 
-        private static byte[] Digest(System.Security.Cryptography.HMAC hmac, byte[] data)
-        {
-            byte[] hashValue = hmac.ComputeHash(data);
-            return hashValue;
-        }
+        private static byte[] Digest(System.Security.Cryptography.HMAC hmac, byte[] data) => hmac.ComputeHash(data);
 
         // MD5
         public static byte[] MD5(byte[] key, Stream data)

@@ -128,28 +128,16 @@ namespace NetCrypsi.Lib.Rsax
         }
 
         // Export private key in PKCS8 format to Hexadecimal string
-        public string ExportPKCS8PrivateKeyToHexStr()
-        {
-            return Convert.ToHexString(privateKeyPKCS8Bytes!);
-        }
+        public string ExportPKCS8PrivateKeyToHexStr() => Convert.ToHexString(privateKeyPKCS8Bytes!);
 
         // Export private key in PKCS1 format to Hexadecimal string
-        public string ExportPKCS1PrivateKeyToHexStr()
-        {
-            return Convert.ToHexString(privateKeyPKCS1Bytes!);
-        }
+        public string ExportPKCS1PrivateKeyToHexStr() => Convert.ToHexString(privateKeyPKCS1Bytes!);
 
         // Export public key in PKCS1 format to Hexadecimal string
-        public string ExportPKCS1PublicKeyToHexStr()
-        {
-            return Convert.ToHexString(publicKeyPKCS1Bytes!);
-        }
+        public string ExportPKCS1PublicKeyToHexStr() => Convert.ToHexString(publicKeyPKCS1Bytes!);
 
         // Load any private or public key from hex string
-        public static byte[] LoadKeyFromHexStr(string keyHexStr)
-        {
-            return Convert.FromHexString(keyHexStr);
-        }
+        public static byte[] LoadKeyFromHexStr(string keyHexStr) => Convert.FromHexString(keyHexStr);
 
         // Load any private or public key from PEM 
         public static byte[] LoadKeyFromPem(Stream stream)

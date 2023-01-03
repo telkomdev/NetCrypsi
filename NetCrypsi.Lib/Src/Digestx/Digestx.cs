@@ -46,17 +46,9 @@ namespace NetCrypsi.Lib.Digestx
             return hashValue;
         }
 
-        public static string MD5Hex(Stream data)
-        {
-            string hashValue = Convert.ToHexString(MD5(data));
-            return hashValue;
-        }
+        public static string MD5Hex(Stream data) => Convert.ToHexString(MD5(data));
 
-        public static string MD5Hex(byte[] data)
-        {
-            string hashValue = Convert.ToHexString(MD5(data));
-            return hashValue;
-        }
+        public static string MD5Hex(byte[] data) => Convert.ToHexString(MD5(data));
 
         // SHA1
         public static byte[] SHA1(Stream data)
@@ -81,17 +73,9 @@ namespace NetCrypsi.Lib.Digestx
             return hashValue;
         }
 
-        public static string SHA1Hex(Stream data)
-        {
-            string hashValue = Convert.ToHexString(SHA1(data));
-            return hashValue;
-        }
+        public static string SHA1Hex(Stream data) => Convert.ToHexString(SHA1(data));
 
-        public static string SHA1Hex(byte[] data)
-        {
-            string hashValue = Convert.ToHexString(SHA1(data));
-            return hashValue;
-        }
+        public static string SHA1Hex(byte[] data) => Convert.ToHexString(SHA1(data));
 
         // SHA256
         public static byte[] SHA256(Stream data)
@@ -116,17 +100,9 @@ namespace NetCrypsi.Lib.Digestx
             return hashValue;
         }
 
-        public static string SHA256Hex(Stream data)
-        {
-            string hashValue = Convert.ToHexString(SHA256(data));
-            return hashValue;
-        }
+        public static string SHA256Hex(Stream data) => Convert.ToHexString(SHA256(data));
 
-        public static string SHA256Hex(byte[] data)
-        {
-            string hashValue = Convert.ToHexString(SHA256(data));
-            return hashValue;
-        }
+        public static string SHA256Hex(byte[] data) => Convert.ToHexString(SHA256(data));
 
         // SHA384
         public static byte[] SHA384(Stream data)
@@ -151,17 +127,9 @@ namespace NetCrypsi.Lib.Digestx
             return hashValue;
         }
 
-        public static string SHA384Hex(Stream data)
-        {
-            string hashValue = Convert.ToHexString(SHA384(data));
-            return hashValue;
-        }
+        public static string SHA384Hex(Stream data) => Convert.ToHexString(SHA384(data));
 
-        public static string SHA384Hex(byte[] data)
-        {
-            string hashValue = Convert.ToHexString(SHA384(data));
-            return hashValue;
-        }
+        public static string SHA384Hex(byte[] data) => Convert.ToHexString(SHA384(data));
 
         // SHA512
         public static byte[] SHA512(Stream data)
@@ -186,16 +154,8 @@ namespace NetCrypsi.Lib.Digestx
             return hashValue;
         }
 
-        public static string SHA512Hex(Stream data)
-        {
-            string hashValue = Convert.ToHexString(SHA512(data));
-            return hashValue;
-        }
+        public static string SHA512Hex(Stream data) => Convert.ToHexString(SHA512(data));
 
-        public static string SHA512Hex(byte[] data)
-        {
-            string hashValue = Convert.ToHexString(SHA512(data));
-            return hashValue;
-        }
+        public static string SHA512Hex(byte[] data) => Convert.ToHexString(SHA512(data));
     }
 }
