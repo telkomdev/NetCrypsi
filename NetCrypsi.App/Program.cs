@@ -22,19 +22,19 @@ namespace NetCrypsi.App
             byte[] decryptedData = Lib.Aesx.Aesx.DecryptWithAES256GCM(Encoding.UTF8.GetBytes("2bf255478288eea26a91b658a97c050d4ec841e8de244aae4f8aaa6e0413234504728e946783c4925460fc06fedb7a627dad42dcb3a9bd4e1bb556c69be79029b8daf08cec7669d16229a1895e9c00ec58b28edf36edab3db5f3359d3df5d7f132a0e628e42f1551329972bd0f752254be273c33ba32348f30"), Encoding.UTF8.GetBytes(key256Str));
             Console.WriteLine(Encoding.UTF8.GetString(decryptedData));
 
-            using (MemoryStream streamInput = new MemoryStream(Encoding.UTF8.GetBytes("The hybrid cryptosystem is itself a public-key system, whose public and private keys are the same as in the key encapsulation scheme")))
+            using (FileStream streamInput = File.Open("./NetCrypsi.Tests/testdata/burger.png", FileMode.Open))
             {
-                using (MemoryStream streamOutput = new MemoryStream())
+                using (FileStream streamOutput = File.Create("burger.bin"))
                 {
                     Lib.Aesx.Aesx.EncryptWithAES256GCM(streamInput, streamOutput, Encoding.UTF8.GetBytes(key256Str));
-                    Console.WriteLine(Encoding.UTF8.GetString(streamOutput.ToArray()));
+                }
+            }
 
-                    using (MemoryStream streamOutputDecrypted = new MemoryStream())
-                    {
-                        streamOutput.Position = 0;
-                        Lib.Aesx.Aesx.DecryptWithAES256GCM(streamOutput, streamOutputDecrypted, Encoding.UTF8.GetBytes(key256Str));
-                        Console.WriteLine(Encoding.UTF8.GetString(streamOutputDecrypted.ToArray()));
-                    }
+            using (FileStream streamInput = File.Open("burger.bin", FileMode.Open))
+            {
+                using (FileStream streamOutput = File.Create("burger_decrypt.png"))
+                {
+                    Lib.Aesx.Aesx.DecryptWithAES256GCM(streamInput, streamOutput, Encoding.UTF8.GetBytes(key256Str));
                 }
             }
         }
