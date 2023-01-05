@@ -165,7 +165,7 @@ namespace NetCrypsi.Lib.Aesx
                 byte[] plainDataBufferOut = new byte[cipherdata.Length];
 
                 aesGcm.Decrypt(nonce, cipherdata, tagBuffer, plainDataBufferOut);
-                outPlainData.Write(plainDataBufferOut);
+                outPlainData.Write(plainDataBufferOut, 0, plainDataBufferOut.Length);
             }
         }
 

@@ -64,7 +64,7 @@ namespace NetCrypsi.Lib.Aesx
                     {
                         using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
                         {
-                            streamWriter.BaseStream.Write(plaindata);
+                            streamWriter.BaseStream.Write(plaindata, 0, plaindata.Length);
                         }
 
                         encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr),
@@ -105,7 +105,7 @@ namespace NetCrypsi.Lib.Aesx
 
                     byte[] encrypted = Lib.Utils.Utils.BufferConcat(Encoding.UTF8.GetBytes(ivHexStr),
                             Encoding.UTF8.GetBytes(Convert.ToHexString(memoryStream.ToArray())));
-                    outEncryptedData.Write(encrypted);
+                    outEncryptedData.Write(encrypted, 0, encrypted.Length);
                 }
             }
         }
