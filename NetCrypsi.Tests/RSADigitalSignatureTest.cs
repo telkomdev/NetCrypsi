@@ -23,12 +23,12 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -50,12 +50,12 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -77,12 +77,12 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -104,12 +104,12 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -131,12 +131,12 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -159,23 +159,23 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
 
         byte[] signature;
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             signature = Lib.Rsax.DigitalSignature.SignWithPssMD5(privateKeyBytes, dataStream);
         }
 
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             bool signatureValid = Lib.Rsax.DigitalSignature.VerifySignatureWithPssMD5(publicKeyBytes, Convert.FromHexString(Convert.ToHexString(signature)), dataStream);
             Assert.True(signatureValid);
@@ -191,23 +191,23 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
 
         byte[] signature;
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             signature = Lib.Rsax.DigitalSignature.SignWithPssSHA1(privateKeyBytes, dataStream);
         }
 
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             bool signatureValid = Lib.Rsax.DigitalSignature.VerifySignatureWithPssSHA1(publicKeyBytes, Convert.FromHexString(Convert.ToHexString(signature)), dataStream);
             Assert.True(signatureValid);
@@ -223,23 +223,23 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
 
         byte[] signature;
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             signature = Lib.Rsax.DigitalSignature.SignWithPssSHA256(privateKeyBytes, dataStream);
         }
 
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             bool signatureValid = Lib.Rsax.DigitalSignature.VerifySignatureWithPssSHA256(publicKeyBytes, Convert.FromHexString(Convert.ToHexString(signature)), dataStream);
             Assert.True(signatureValid);
@@ -255,23 +255,23 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
 
         byte[] signature;
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             signature = Lib.Rsax.DigitalSignature.SignWithPssSHA384(privateKeyBytes, dataStream);
         }
 
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             bool signatureValid = Lib.Rsax.DigitalSignature.VerifySignatureWithPssSHA384(publicKeyBytes, Convert.FromHexString(Convert.ToHexString(signature)), dataStream);
             Assert.True(signatureValid);
@@ -287,23 +287,23 @@ public class RSADigitalSignatureTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
 
         byte[] signature;
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             signature = Lib.Rsax.DigitalSignature.SignWithPssSHA512(privateKeyBytes, dataStream);
         }
 
-        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open))
+        using (FileStream dataStream = File.Open("../../../testdata/burger.png", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             bool signatureValid = Lib.Rsax.DigitalSignature.VerifySignatureWithPssSHA512(publicKeyBytes, Convert.FromHexString(Convert.ToHexString(signature)), dataStream);
             Assert.True(signatureValid);

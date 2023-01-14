@@ -23,12 +23,12 @@ public class RSAEncryptionTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -50,12 +50,12 @@ public class RSAEncryptionTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -77,12 +77,12 @@ public class RSAEncryptionTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -104,12 +104,12 @@ public class RSAEncryptionTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
@@ -131,12 +131,12 @@ public class RSAEncryptionTest
         byte[] publicKeyBytes;
         byte[] privateKeyBytes;
 
-        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open))
+        using (FileStream publicKeyStream = File.Open("../../../testdata/public.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             publicKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(publicKeyStream);
         }
 
-        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open))
+        using (FileStream privateKeyStream = File.Open("../../../testdata/private_pkcs8.key", FileMode.Open, FileAccess.Read, FileShare.Read))
         {
             privateKeyBytes = Lib.Rsax.Rsax.LoadKeyFromPem(privateKeyStream);
         }
