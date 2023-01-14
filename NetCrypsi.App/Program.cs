@@ -37,6 +37,12 @@ namespace NetCrypsi.App
                     Lib.Aesx.Aesx.DecryptWithAES256GCM(streamInput, streamOutput, Encoding.UTF8.GetBytes(key256Str));
                 }
             }
+
+            byte[] emptyEncryptedData = Lib.Aesx.Aesx.EncryptWithAES256CBC(Encoding.UTF8.GetBytes(""), Encoding.UTF8.GetBytes(key256Str));
+            Console.WriteLine(Encoding.UTF8.GetString(emptyEncryptedData));
+
+            byte[] emptyDecryptedData = Lib.Aesx.Aesx.DecryptWithAES256CBC(Encoding.UTF8.GetBytes("91d67cce84b7a189d178697ef78fc9b4059b61b33004dc33d9be139afadd0660"), Encoding.UTF8.GetBytes(key256Str));
+            Console.WriteLine(Encoding.UTF8.GetString(emptyDecryptedData));
         }
     }
 }

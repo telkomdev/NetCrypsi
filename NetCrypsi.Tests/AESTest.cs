@@ -49,6 +49,17 @@ public class AESTest
         Assert.Equal(expected, actual);
     }
 
+    [Fact]
+    public void TestDecryptEmptyBytesDataWithAES256CBCShouldEqualToDecryptedData()
+    {
+        string expected = "";
+
+        byte[] decryptedData = Lib.Aesx.Aesx.DecryptWithAES256CBC(Encoding.UTF8.GetBytes("91d67cce84b7a189d178697ef78fc9b4059b61b33004dc33d9be139afadd0660"), Encoding.UTF8.GetBytes(key256Str));
+
+        string actual = Encoding.UTF8.GetString(decryptedData);
+        Assert.Equal(expected, actual);
+    }
+
     // AES CBC Encrypt and Decrypt IO Stream
     [Fact]
     public void TestEncryptStreamDataWithAES128CBCShouldEqualToDecryptedData()
@@ -176,6 +187,17 @@ public class AESTest
 
         byte[] encryptedData = Lib.Aesx.Aesx.EncryptWithAES256GCM(Encoding.UTF8.GetBytes(expected), Encoding.UTF8.GetBytes(key256Str));
         byte[] decryptedData = Lib.Aesx.Aesx.DecryptWithAES256GCM(encryptedData, Encoding.UTF8.GetBytes(key256Str));
+
+        string actual = Encoding.UTF8.GetString(decryptedData);
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void TestDecryptEmptyBytesDataWithAES256GCMShouldEqualToDecryptedData()
+    {
+        string expected = "";
+
+        byte[] decryptedData = Lib.Aesx.Aesx.DecryptWithAES256GCM(Encoding.UTF8.GetBytes("17C6A0716D8BFA7479330426FD48CE332B6940288607DE3F9186E55F"), Encoding.UTF8.GetBytes(key256Str));
 
         string actual = Encoding.UTF8.GetString(decryptedData);
         Assert.Equal(expected, actual);

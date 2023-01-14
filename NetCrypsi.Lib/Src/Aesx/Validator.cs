@@ -11,7 +11,7 @@ namespace NetCrypsi.Lib.Aesx
 
         public static void Validate(AesKey aesKey, byte[] data, byte[] key)
         {
-            if (data == null || data.Length <= 0)
+            if (data == null)
             {
                 throw new ArgumentNullException("plain data");
             }
