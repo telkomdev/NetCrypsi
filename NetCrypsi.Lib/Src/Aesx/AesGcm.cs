@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace NetCrypsi.Lib.Aesx
+namespace NetCrypsi.Lib
 {
     internal sealed class AesGcm
     {

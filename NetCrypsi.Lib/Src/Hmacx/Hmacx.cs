@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NetCrypsi.Lib.Hmacx
+namespace NetCrypsi.Lib
 {
     public sealed class Hmacx
     {

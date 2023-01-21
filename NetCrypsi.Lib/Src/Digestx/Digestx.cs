@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace NetCrypsi.Lib.Digestx
+namespace NetCrypsi.Lib
 {
     public sealed class Digestx
     {

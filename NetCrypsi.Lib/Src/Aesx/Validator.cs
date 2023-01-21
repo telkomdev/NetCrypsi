@@ -1,6 +1,6 @@
 using System;
 
-namespace NetCrypsi.Lib.Aesx
+namespace NetCrypsi.Lib
 {
     internal sealed class Validator
     {

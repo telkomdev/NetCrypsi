@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NetCrypsi.Lib.Aesx
+namespace NetCrypsi.Lib
 {
     internal sealed class AesCbc
     {

@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
 
-namespace NetCrypsi.Lib.Rsax
+namespace NetCrypsi.Lib
 {
     public sealed class Rsax
     {
