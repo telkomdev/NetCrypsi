@@ -8,6 +8,7 @@ Custom crypto utility that wraps the DotNet `cryptography` API to make life easi
 - NodeJs https://github.com/telkomdev/crypsi
 - Python https://github.com/telkomdev/pycrypsi
 - Golang https://github.com/telkomdev/go-crypsi
+- Java/JVM https://github.com/telkomdev/jcrypsi
 - Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
 
 ### Features
